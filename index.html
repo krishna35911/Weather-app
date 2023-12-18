@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./weather.css">
+</head>
+<body>
+
+      <!-- first section -->
+      <div class="container mt-5">
+        <div class="row d-flex justify-content-center align-items-center" >
+            <div class="col-md-12 col-lg-4 text-center column1" style="border:2px solid #ffffff;border-radius: 60px; box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.3);background-repeat: no-repeat;background-size: cover;background-color: rgb(205, 173, 232);">
+            <div id="first">
+                <form class="d-flex ms-5 mt-5" role="search">
+                    <input type="text" id="cname" class="form-control me-2" placeholder="Enter city name">
+                    <button type="button" onclick="city()" class="btn text-light" style="background-color: rgb(47, 6, 86);">Search</button>
+                    
+                  </form>
+                <div class="justify-content-center align-items-center column12" style="width: 100%; height:auto;border-radius: 60px;padding: 30px;background-color: rgb(205, 173, 232);color: rgb(47, 6, 86);">
+                    <img src="images/png-transparent-weather-forecasting-severe-weather-storm-weather-free-text-heart-logo-thumbnail-removebg-preview.png" height="40%" width="40%" alt="" >
+                    <h1 class=" mt-5" style="font-weight: bold;">Weather Forecast</h1>
+                    <p class=" mt-3" style="margin-left: 100px;">Weather app</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-12 col-lg-4 text-center column2" id="bg" style="border:2px solid #ffffff;border-radius: 60px; box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.3);background-repeat: no-repeat;background-size: cover;background-color: rgb(255, 255, 255);">
+            <div id="second">
+                <div style="padding:30px">
+                    <div>
+                        <h4 style="color: rgb(47, 6, 86);">Name</h4>
+                    </div>
+                    <div style="margin-top:30px">
+                        <h3>Description</h3>
+                    </div>
+                    <div style="margin-top:50px" class="d-flex justify-content-center align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3093/3093390.png" height="50px" width="60px">
+                        <h1 class="ms-4" style="font-size:50px;color: rgb(47, 6, 86);">Temperature</h1>
+                    </div>
+                   
+                    <div class="row d-flex justify-content-center align-items-center mt-2">
+                        <div class="col-lg-6 col-md-12">
+                            <div class=" d-flex justify-content-center align-items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/128/3920/3920688.png" height="30px" width="30px">
+                                <p class="mt-4 ms-2"  style="font-size:15px;color: rgb(47, 6, 86);">Sunrise</p>
+                            </div>
+                            <p class="ms-5 ps-3"  style="font-size: 13px;color: rgb(47, 6, 86);"></p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 ">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/128/3920/3920799.png" height="30px" width="30px">
+                                <p class="mt-4 ms-2"  style="font-size:15px;color: rgb(47, 6, 86);" >Sunset</p>
+                            </div>
+                            <p class="ms-5 ps-3"  style="font-size: 13px;color: rgb(47, 6, 86);"></p>
+                        </div>
+                    </div>
+                    <div class="row last d-flex justify-content-center align-items-center mx-auto mt-4">
+                        <div class="col-lg-6 col-md-12 column24">
+                            <div class="col-lg-4 col-md-12 column25 justify-content-center align-items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/128/6474/6474692.png" height="25px" width="30px" class="mb-3">
+                                <p>Humidity </p>
+                                <p id="p1"></p>
+                            </div>
+                            <div class="col-lg-4 col-md-12 column26 justify-content-center align-items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/128/1585/1585400.png" height="25px" width="30px" class="mb-3">
+                                <p>Wind </p>
+                                <p id="p2"></p>
+                            </div>
+                            <div class="col-lg-4 col-md-12 column27 justify-content-center align-items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/128/1808/1808263.png" height="25px" width="30px" class="mb-3">
+                                <p>Pressure </p>
+                                <p id="p3"></p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
+      </div>
+      <div class="col-lg-4"></div>
+    </div>
+    </div>
+</body>
+<script>
+    const city=async()=>
+    {
+        let cityName=cname.value
+        console.log(cityName);
+        if(cityName)
+        {
+            let response=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=99debba57133a8f6d4e86bebf80f3fff`)
+           // console.log(response.json());
+
+           response.json().then((data)=>
+           {
+            console.log(data);
+
+            let humidity=data.main.humidity
+            console.log(humidity);
+
+            let wind=data.wind.speed
+            console.log(wind);
+
+            let pressure=data.main.pressure
+            console.log(pressure);
+
+            let name=data.name
+            console.log(name);
+
+            let temp=(data.main.temp-273.15).toFixed(2)
+            console.log(temp); 
+          
+            let des=data.weather
+            console.log(des);
+
+            let sun=data.sys.sunrise
+            let hr=new Date(sun*1000).getHours()
+            let ampm = hr >= 12 ? 'PM' : 'AM';
+            let sunrise="Around "+hr%12+" "+ampm
+            console.log(sunrise);
+
+            let set=data.sys.sunset
+            let hour=new Date(set*1000).getHours()
+            let ap = hour >= 12 ? 'PM' : 'AM';
+            let sunset="Around "+hour%12+" "+ap
+            console.log(sunset);
+
+            function change()
+            {
+                const date = new Date();
+                const hour = date.getHours();
+
+                const body = document.body;
+
+                if (hour >= 6 && hour<18) {
+                    bg.style.backgroundImage = 'url("https://cdn.dribbble.com/users/925716/screenshots/3333720/attachments/722376/after_noon.png")';
+                    
+                } else {
+                    bg.style.backgroundImage = 'url("https://cdn.dribbble.com/users/925716/screenshots/3333720/attachments/722375/night.png")';
+                }
+            }
+
+            change();
+
+
+            second.innerHTML=
+               
+                `
+                <div style="padding:30px">
+                    <div>
+                        <h4 style="color: rgb(47, 6, 86);">${name}</h4>
+                    </div>
+                    <div style="margin-top:30px">
+                        <h3>${des.map((item)=>
+                            `<h3 style="font-size:30px;color: rgb(47, 6, 86);">${item.description}</h3>`)}</h3>
+                    </div>
+                    <div style="margin-top:50px" class="d-flex justify-content-center align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/128/3093/3093390.png" height="50px" width="60px">
+                        <h1 class="ms-4" style="font-size:50px;color: rgb(47, 6, 86);">${temp} °C</h1>
+                    </div>
+                   
+                    <div class="row d-flex justify-content-center align-items-center mt-2">
+                        <div class="col-lg-6 col-md-12">
+                            <div class=" d-flex justify-content-center align-items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/128/3920/3920688.png" height="30px" width="30px">
+                                <p class="mt-4 ms-2"  style="font-size:15px;color: rgb(47, 6, 86);">Sunrise</p>
+                            </div>
+                            <p class="ms-5 ps-3"  style="font-size: 13px;color: rgb(47, 6, 86);">${sunrise}</p>
+                        </div>
+                        <div class="col-lg-6 col-md-12 ">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/128/3920/3920799.png" height="30px" width="30px">
+                                <p class="mt-4 ms-2"  style="font-size:15px;color: rgb(47, 6, 86);" >Sunset</p>
+                            </div>
+                            <p class="ms-5 ps-3"  style="font-size: 13px;color: rgb(47, 6, 86);">${sunset}</p>
+                        </div>
+                    </div>
+                    <div class="row last d-flex justify-content-center align-items-center mx-auto mt-4">
+                        <div class="col-lg-6 col-md-12 column24">
+                            <div class="col-lg-4 col-md-12 column25 justify-content-center align-items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/128/6474/6474692.png" height="25px" width="30px" class="mb-3">
+                                <p>Humidity </p>
+                                <p id="p1">${humidity}</p>
+                            </div>
+                            <div class="col-lg-4 col-md-12 column26 justify-content-center align-items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/128/1585/1585400.png" height="25px" width="30px" class="mb-3">
+                                <p>Wind </p>
+                                <p id="p2">${wind}</p>
+                            </div>
+                            <div class="col-lg-4 col-md-12 column27 justify-content-center align-items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/128/1808/1808263.png" height="25px" width="30px" class="mb-3">
+                                <p>Pressure </p>
+                                <p id="p3">${pressure}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>`
+           })
+        }
+    }
+</script>
+</html>
